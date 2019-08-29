@@ -152,7 +152,6 @@
 
 
                         />
-                    <requestFocus/>
 
                 </android.support.design.widget.TextInputLayout>
 

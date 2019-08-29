@@ -24,7 +24,6 @@ public class login_code extends AppCompatActivity {
         phone_in_code_tv=findViewById(R.id.phone_in_code_TV);
         phone_in_code_tv.setText(login_phone.phone_number);
         edittext=findViewById(R.id.verify_ET);
-        code=edittext.getText().toString();
 
         login.Login_Register(getApplicationContext());
     }
@@ -34,7 +33,7 @@ public class login_code extends AppCompatActivity {
     }
 
     public void verify_BTN(View view){
-
+        this.code=edittext.getText().toString();
         login.verifynum(getApplicationContext(),code);
 
         Intent intent_ok=new Intent(this , MenuApp.class);

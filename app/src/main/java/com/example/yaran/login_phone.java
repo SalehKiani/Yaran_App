@@ -23,11 +23,13 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
 public class login_phone extends AppCompatActivity {
@@ -43,7 +45,7 @@ public class login_phone extends AppCompatActivity {
     TextView phone_ed;
     TextView country_ed;
     TextView codecountry_ed;
-
+    static final int READ_BLOCK_SIZE = 100;
     static String phone_number;
 
     @Override
@@ -61,19 +63,19 @@ public class login_phone extends AppCompatActivity {
         {
             Token();
 
-//
-//            try {
-//                FileOutputStream fileout=openFileOutput("TOKEN.txt", MODE_PRIVATE);
-//                OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
-//                outputWriter.write("alisdsc");
-//                outputWriter.close();
-//
-//                //display file saved message
-//                Toast.makeText(getBaseContext(), "File saved successfully!",      Toast.LENGTH_SHORT).show();
-//
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+
+            try {
+                FileOutputStream fileout=openFileOutput("TOKEN.txt", MODE_PRIVATE);
+                OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
+                outputWriter.write("alisdsc");
+                outputWriter.close();
+
+                //display file saved message
+                Toast.makeText(getBaseContext(), "File saved successfully!",      Toast.LENGTH_SHORT).show();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             //////////////////////////////////////////////////////
 //            try {
@@ -130,9 +132,32 @@ public class login_phone extends AppCompatActivity {
 //            e.printStackTrace();
 //        }
 
-        Intent intent_menu=new Intent(this , MenuApp.class);
-        startActivity(intent_menu);
-        this.finish();
+        ////////////////////////////////////
+        try {
+            FileInputStream fileIn=openFileInput("TOKEN.txt");
+            InputStreamReader InputRead= new InputStreamReader(fileIn);
+
+            char[] inputBuffer= new char[READ_BLOCK_SIZE];
+            String s="";
+            int charRead;
+
+            while ((charRead=InputRead.read())>0) {
+                // char to string conversion
+                String readstring=String.copyValueOf(inputBuffer,0,charRead);
+                s +=readstring;
+            }
+            InputRead.close();
+            Toast.makeText(this, s, Toast.LENGTH_LONG).show();
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        ///////////////////////////////////
+//        Intent intent_menu=new Intent(this , MenuApp.class);
+//        startActivity(intent_menu);
+//        this.finish();
     }
 
     public void code_Click(View view) {
