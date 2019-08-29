@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Walet_Charge_Amount">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:background="@color/Dark"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="کیف پول"
+        android:textSize="25dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"/>
+
+        </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="مبلغ مورد نظر خود را وارد کنید"
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_below="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="40dp"
+        android:hint="مبلغ را به ریال وارد کنید"
+        android:gravity="center"
+        />
+    <Button
+        android:onClick="amount_setter"
+        android:id="@+id/btn1"
+        android:layout_below="@+id/amount"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:text="1,000,000"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"/>
+    <Button
+        android:id="@+id/btn2"
+        android:layout_below="@+id/amount"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@+id/btn1"
+        android:layout_marginTop="15dp"
+        android:text="500,000"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"/>
+    <Button
+        android:id="@+id/btn3"
+        android:layout_below="@+id/amount"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_toRightOf="@+id/btn2"
+        android:layout_marginTop="15dp"
+        android:text="200,000"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="16dp"/>
+
+    <Button
+        android:onClick="confirm"
+        android:id="@+id/confirm"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:text="تایید"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:background="@color/yellow"
+        />
+
+
+</RelativeLayout>

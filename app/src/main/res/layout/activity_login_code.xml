@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login_code"
+    android:background="@color/Light"
+   >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/back_login" />
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="151dp"
+                android:textColor="@color/Light"
+                android:background="@drawable/titel"
+                android:text="دریافت کد ورود"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+                />
+
+            <RelativeLayout
+                android:layout_width="300dp"
+                android:layout_height="220dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="190dp"
+                android:background="@drawable/border_light"
+
+
+                >
+
+                <TextView
+                    android:layout_width="220dp"
+                    android:layout_height="30dp"
+                    android:textSize="17dp"
+                    android:textColor="@color/Light"
+                    android:textStyle="bold"
+                    android:id="@+id/phone_in_code_TV"
+                    android:gravity="center"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    />
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/textinput"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="40dp"
+                    android:textColorHint="@color/Light"
+                    android:drawableTint="@color/Light"
+                    android:foregroundTint="@color/Light"
+                    android:background="@drawable/edittext"
+
+
+
+                    >
+
+                    <EditText
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:hint="کد"
+                        android:layout_weight="3"
+                        android:layout_gravity="center"
+                        android:cursorVisible="true"
+                        android:textCursorDrawable="@color/Light"
+                        android:textColor="@color/Light"
+                        android:drawableTint="@color/Light"
+                        android:foregroundTint="@color/Light"
+                        android:maxLength="4"
+                        android:textAlignment="center"
+                        android:id="@+id/verify_ET"
+
+
+
+                        />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/ok_BTN"
+                    android:layout_width="220dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/textinput"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="47dp"
+                    android:background="@drawable/corner8"
+                    android:text="تأیید"
+                    android:textAlignment="center"
+                    android:textColor="@color/Dark"
+                    android:onClick="verify_BTN"
+
+
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="35dp"
+                     android:gravity="center"
+                    android:text="دریافت دوباره کد"
+                    android:textColor="@color/Light"
+                    android:layout_below="@+id/ok_BTN"
+                    android:layout_marginLeft="150dp"
+                    android:id="@+id/again_code_TV"
+                    android:layout_marginTop="5dp"
+
+                    />
+
+                <View
+                    android:layout_width="2dp"
+                    android:layout_height="25dp"
+                    android:layout_alignLeft="@+id/again_code_TV"
+                    android:layout_below="@+id/ok_BTN"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/Light"
+                    />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:text="تغییر شماره تماس"
+                    android:textColor="@color/Light"
+                    android:layout_below="@+id/ok_BTN"
+                    android:layout_marginLeft="30dp"
+                    android:id="@+id/change_phone_TV"
+                    android:layout_marginTop="5dp"
+                    android:onClick="change_phone_Click"
+
+                    />
+
+
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+</RelativeLayout>
