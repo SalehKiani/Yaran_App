@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/trip"
+    tools:context=".Trip"
+    >
+
+
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="#a0bdbdbd"
+        >
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/icon_trip"
+            android:orientation="horizontal"
+            android:onClick="air_out_trip_Click"
+            >
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/travel"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                tools:ignore="MissingConstraints"
+                android:id="@+id/air_out_pic"
+                android:onClick="air_out_trip_Click"
+                />
+            <TextView
+                android:layout_width="55dp"
+                android:layout_height="20dp"
+                android:text="پرواز خارجی"
+                android:textSize="11dp"
+                android:textColor="@color/Dark"
+                android:layout_below="@+id/air_out_pic"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:onClick="air_out_trip_Click"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="100dp"
+            android:background="@drawable/icon_trip"
+            android:orientation="horizontal"
+            android:onClick="tran_trip_Click"
+            >
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/tran"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                tools:ignore="MissingConstraints"
+                android:id="@+id/tran_pic"
+                android:onClick="tran_trip_Click"
+                />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="قطار"
+                android:textColor="@color/Dark"
+                android:layout_below="@+id/tran_pic"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:onClick="tran_trip_Click"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/icon_trip"
+            android:orientation="horizontal"
+            >
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/bus"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                tools:ignore="MissingConstraints"
+                android:id="@+id/bus_pic"
+                android:onClick="bus_trip_Click"
+                />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="اتوبوس"
+                android:textColor="@color/Dark"
+                android:layout_below="@+id/bus_pic"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/icon_trip"
+            android:orientation="horizontal"
+            android:onClick="air_in_trip_Click"
+            >
+            <ImageButton
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="@drawable/plane_in"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:scaleType="centerCrop"
+                tools:ignore="MissingConstraints"
+                android:id="@+id/air_in_pic"
+                android:onClick="air_in_trip_Click"
+
+                />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:text="پرواز داخلی"
+                android:textSize="11dp"
+                android:textColor="@color/Dark"
+                android:layout_below="@+id/air_in_pic"
+                android:layout_centerHorizontal="true"
+                android:gravity="center"
+                android:onClick="air_in_trip_Click"
+                android:textStyle="bold"/>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
