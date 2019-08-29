@@ -105,4 +105,20 @@ public class MenuApp extends AppCompatActivity {
         }
     }
 
+    public void Trip_Click(View view) {
+        if(isonline()) {
+            if (Login.access_login != null) {
+                Intent intent_wallet = new Intent(this, Wallet_Charge.class);
+                intent_wallet.putExtra("access", access);
+                startActivity(intent_wallet);
+
+            }
+            else{
+                Toast.makeText(this,"have not logged in !",Toast.LENGTH_LONG).show();
+            }
+        }
+        else {
+            Toast.makeText(this,"به اینترنت متصل نیستی !",Toast.LENGTH_LONG).show();
+        }
+    }
 }

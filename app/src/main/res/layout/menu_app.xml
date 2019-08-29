@@ -317,6 +317,8 @@
                 android:columnCount="1"
                 android:rowCount="2"
                 android:padding="15dp"
+                android:onClick="Trip_Click"
+
                 >
                 <ImageButton
                     android:layout_width="0dp"
@@ -329,6 +331,7 @@
                     android:layout_row="0"
                     android:layout_column="0"
                     android:layout_rowWeight="5"
+                    android:onClick="Trip_Click"
                     android:layout_columnWeight="1"
 
                     />
@@ -344,7 +347,9 @@
                     android:layout_row="1"
                     android:layout_column="0"
                     android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"/>
+                    android:layout_columnWeight="1"
+                    android:onClick="Trip_Click"
+                    />
             </GridLayout>
 
 

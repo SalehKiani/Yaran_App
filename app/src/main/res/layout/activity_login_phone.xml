@@ -54,7 +54,7 @@
                     android:textColorHint="@color/Light"
                     android:drawableTint="@color/Light"
                     android:foregroundTint="@color/Light"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="65dp"
                     >
 
                     <EditText

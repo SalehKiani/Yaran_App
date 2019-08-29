@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +15,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
         android:usesCleartextTraffic="true">
+        <activity android:name=".Bus_Trip"></activity>
+        <activity android:name=".Air_In_Trip" />
+        <activity android:name=".Tran_trip" />
+        <activity android:name=".Air_Out_Trip" />
+        <activity android:name=".Trip" />
         <activity android:name=".Walet_Charge_Amount" />
         <activity android:name=".Wallet_Charge">
             <intent-filter>

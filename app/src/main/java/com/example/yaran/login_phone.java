@@ -21,6 +21,15 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 public class login_phone extends AppCompatActivity {
 
 
@@ -28,7 +37,7 @@ public class login_phone extends AppCompatActivity {
 
     RequestQueue requestQueue;
     static String access;
-    static public String server_address="http://81.12.13.142:8080";
+    static public String server_address="http://81.12.13.144:8080";
     String mJSONURLString = (server_address+"/yaran/api/customers/registrations/anonymous");
 
     TextView phone_ed;
@@ -44,10 +53,8 @@ public class login_phone extends AppCompatActivity {
         phone_ed=findViewById(R.id.phone_ET);
         country_ed=findViewById(R.id.country_ET);
         codecountry_ed=findViewById(R.id.codecountry_ET);
-
         codecountry_ed.setText("98");
         country_ed.setText("ایران");
-
 
 
         if (isonline())
@@ -85,7 +92,6 @@ public class login_phone extends AppCompatActivity {
          }
          else {
              Toast.makeText(this, "شماره تلفن همراه صحیح نیست !", Toast.LENGTH_LONG).show();
-             phone_ed.requestFocus();
          }
 
      }
