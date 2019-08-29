@@ -61,19 +61,19 @@ public class login_phone extends AppCompatActivity {
         {
             Token();
 
-
-            try {
-                FileOutputStream fileout=openFileOutput("TOKEN.txt", MODE_PRIVATE);
-                OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
-                outputWriter.write("alisdsc");
-                outputWriter.close();
-
-                //display file saved message
-                Toast.makeText(getBaseContext(), "File saved successfully!",      Toast.LENGTH_SHORT).show();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//
+//            try {
+//                FileOutputStream fileout=openFileOutput("TOKEN.txt", MODE_PRIVATE);
+//                OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
+//                outputWriter.write("alisdsc");
+//                outputWriter.close();
+//
+//                //display file saved message
+//                Toast.makeText(getBaseContext(), "File saved successfully!",      Toast.LENGTH_SHORT).show();
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
 
             //////////////////////////////////////////////////////
 //            try {
@@ -114,25 +114,25 @@ public class login_phone extends AppCompatActivity {
 
     public void menu_Click(View view) {
 
-        StringBuilder stringBuilder = new StringBuilder();
-        try
-        {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("Token"));
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-            bufferedReader.close();
+//        StringBuilder stringBuilder = new StringBuilder();
+//        try
+//        {
+//            BufferedReader bufferedReader = new BufferedReader(new FileReader("Token"));
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                stringBuilder.append(line);
+//            }
+//            bufferedReader.close();
+//
+//
+//        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-//        Intent intent_menu=new Intent(this , MenuApp.class);
-//        startActivity(intent_menu);
-//        this.finish();
+        Intent intent_menu=new Intent(this , MenuApp.class);
+        startActivity(intent_menu);
+        this.finish();
     }
 
     public void code_Click(View view) {
