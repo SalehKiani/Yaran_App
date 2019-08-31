@@ -57,60 +57,72 @@ public class Show_News extends AppCompatActivity {
 
 
 
-    void postmethod(){
-        final ArrayList<News> newsArray2 = new ArrayList<>();
-        try {
-            JsonObjectRequest jsonobj = new JsonObjectRequest(Request.Method.POST, url, new JSONObject("{\"count\":50,\"startIndex\": 0}"),
-                    new Response.Listener<JSONObject>() {
-                        @Override
-                        public void onResponse(JSONObject response) {
-                            try {
-                                JSONArray jsonArray = response.getJSONArray("list");
+    void postmethod()
+    {
+        news_thread.start();
 
-                                for (int i = 0; i < jsonArray.length(); i++) {
-                                    JSONObject newObject = jsonArray.getJSONObject(i);
-                                    String author = newObject.getString("author");
-                                    String description=newObject.getString("description");
-                                    String enclosureLength=newObject.getString("enclosureLength");
-                                    String enclosureType=newObject.getString("enclosureType");
-                                    String enclosureUrl=newObject.getString("enclosureUrl");
-                                    String link=newObject.getString("link");
-                                    String pubDate=newObject.getString("pubDate");
-                                    String title = newObject.getString("title");
+    }
 
 
-                                    newsArray2.add(new News(author,description,enclosureLength,enclosureType,enclosureUrl,link,pubDate,title));
-//                                    mynews=new News(author,description,enclosureLength,enclosureType,enclosureUrl,link,pubDate,title);
+        Thread news_thread=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                final ArrayList<News> newsArray2 = new ArrayList<>();
+                try {
+                    JsonObjectRequest jsonobj = new JsonObjectRequest(Request.Method.POST, url, new JSONObject("{\"count\":50,\"startIndex\": 0}"),
+                            new Response.Listener<JSONObject>() {
+                                @Override
+                                public void onResponse(JSONObject response) {
+                                    try {
+                                        JSONArray jsonArray = response.getJSONArray("list");
+
+                                        for (int i = 0; i < jsonArray.length(); i++) {
+                                            JSONObject newObject = jsonArray.getJSONObject(i);
+                                            String author = newObject.getString("author");
+                                            String description=newObject.getString("description");
+                                            String enclosureLength=newObject.getString("enclosureLength");
+                                            String enclosureType=newObject.getString("enclosureType");
+                                            String enclosureUrl=newObject.getString("enclosureUrl");
+                                            String link=newObject.getString("link");
+                                            String pubDate=newObject.getString("pubDate");
+                                            String title = newObject.getString("title");
+
+
+                                            newsArray2.add(new News(author,description,enclosureLength,enclosureType,enclosureUrl,link,pubDate,title));
+
+                                        }
+                                        CustomAdapter mAdapter = new CustomAdapter(newsArray2,context2);
+                                        news_list.setAdapter(mAdapter);
+                                    } catch (JSONException e) {
+                                        e.getMessage();
+                                    }
+
                                 }
-                                CustomAdapter mAdapter = new CustomAdapter(newsArray2,context2);
-                                news_list.setAdapter(mAdapter);
-                            } catch (JSONException e) {
-                                e.getMessage();
+                            },
+                            new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    if(1==1);
+                                }
                             }
 
-                        }
-                    },
-                    new Response.ErrorListener() {
+                    ) {
                         @Override
-                        public void onErrorResponse(VolleyError error) {
-                            if(1==1);
+                        public Map getHeaders() {
+                            HashMap headers = new HashMap();
+                            headers.put("Content-Type", "application/json");
+                            headers.put("Authorization", "Bearer " + access);
+                            return headers;
                         }
-                    }
-
-            ) {
-                @Override
-                public Map getHeaders() {
-                    HashMap headers = new HashMap();
-                    headers.put("Content-Type", "application/json");
-                    headers.put("Authorization", "Bearer " + access);
-                    return headers;
+                    };
+                    requestQueue = Volley.newRequestQueue(context2);
+                    requestQueue.add(jsonobj);
+                } catch (Exception e) {
+                    e.getMessage();
                 }
-            };
-            requestQueue = Volley.newRequestQueue(context2);
-            requestQueue.add(jsonobj);
-        } catch (Exception e) {
-            e.getMessage();
-        }
-    }
+            }
+        });
+
+
 
 }

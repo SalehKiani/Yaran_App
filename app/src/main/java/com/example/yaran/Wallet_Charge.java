@@ -14,6 +14,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
@@ -24,16 +25,19 @@ import java.util.Map;
 
 public class Wallet_Charge extends AppCompatActivity {
 
-
+    public RequestQueue requestQueue;
+    public String balancereq;
 
     TextView tv;
-    static int balance=0;
+    static String balance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wallet__charge);
-        tv = (TextView) findViewById(R.id.balance_tv);
+        balancereq=login_phone.server_address+"/yaran/api/wallet/balance";
+        get_balance();
+        tv =  findViewById(R.id.balance_tv);
         tv.setText("موجودی"+"\n"+balance+"ریال");
         Intent in = getIntent();
         Uri data = in.getData();
@@ -42,9 +46,9 @@ public class Wallet_Charge extends AppCompatActivity {
             String rdata = data.toString().replace("varchar://", "");
 
 
-            if (rdata.equals("ok")) {
+            if (rdata.equals("110")) {
                 Toast.makeText(getBaseContext(), "موفقیت", Toast.LENGTH_LONG).show();
-            } else {
+            } else if(rdata.equals("13")) {
                 Toast.makeText(getBaseContext(), "عدم موفقیت", Toast.LENGTH_LONG).show();
             }
         }
@@ -53,14 +57,64 @@ public class Wallet_Charge extends AppCompatActivity {
     }
 
 
+    public void transaction_history(View view){
+
+    }
+
     public void increase_balance(View view){
 
         Intent i=new Intent(this,Walet_Charge_Amount.class);
         startActivity(i);
     }
 
+    public void get_balance()
+    {
+    getbalancet.start();
+    }
+
+    Thread getbalancet=new Thread(new Runnable() {
+        @Override
+        public void run() {
+            requestQueue = Volley.newRequestQueue(getApplicationContext());
+
+            // Initialize a new JsonObjectRequest instance
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, balancereq,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
 
 
+                            try {
+                                //getting the whole json object from the response
+                                JSONObject obj = new JSONObject(response);
+                                balance=obj.getString("balanceCurrencyIran");
+                                tv.setText("موجودی"+"\n"+balance+"ریال");
+
+                            }
+                            catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+
+                }
+            }
+            ){
+                @Override
+                public Map getHeaders() {
+                    HashMap headers = new HashMap();
+                    headers.put("Content-Type", "application/json");
+                    headers.put("Authorization", "Bearer " + Login.access_login);
+                    return headers;
+                }
+            };
+
+            requestQueue.add(stringRequest);
+
+        }
+    });
 
 
 

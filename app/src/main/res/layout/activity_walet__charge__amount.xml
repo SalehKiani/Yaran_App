@@ -50,6 +50,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"/>
     <Button
+        android:onClick="amount_setter"
         android:id="@+id/btn2"
         android:layout_below="@+id/amount"
         android:layout_width="100dp"
@@ -60,6 +61,7 @@
         android:layout_marginRight="16dp"
         android:layout_marginLeft="16dp"/>
     <Button
+        android:onClick="amount_setter"
         android:id="@+id/btn3"
         android:layout_below="@+id/amount"
         android:layout_width="100dp"
@@ -74,7 +76,7 @@
         android:onClick="confirm"
         android:id="@+id/confirm"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:text="تایید"
         android:textColor="@android:color/black"

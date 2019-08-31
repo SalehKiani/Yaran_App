@@ -1,5 +1,6 @@
 package com.example.yaran;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -34,5 +35,11 @@ public class login_code extends AppCompatActivity {
     public void verify_BTN(View view){
         this.code=edittext.getText().toString();
         login.verifynum(getApplicationContext(),code);
+
+        Intent intent_ok=new Intent(this , MenuApp.class);
+        startActivity(intent_ok);
+        this.finish();
+
+
     }
 }

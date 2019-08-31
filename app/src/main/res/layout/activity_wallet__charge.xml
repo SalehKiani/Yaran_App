@@ -50,25 +50,103 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/r1">
 
-        <Button
-            android:id="@+id/btn"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/circle"
-            android:text="+"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="5dp"
-            android:textSize="@android:dimen/app_icon_size"
-            android:gravity="center"
-            android:onClick="increase_balance"/>
-        <TextView
-            android:layout_below="@+id/btn"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/charge_r"
+            android:layout_marginLeft="1dp"
+            android:id="@+id/history_r">
+
+
+            <ImageButton
+                android:id="@+id/charge_btn"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/history_icon"
+                android:scaleType="fitCenter"
+                android:layout_marginTop="5dp"
+                android:textSize="@android:dimen/app_icon_size"
+                android:gravity="center"
+                android:onClick="transaction_history"/>
+
+            <TextView
+                android:layout_below="@+id/charge_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تاریخچه تراکنش"
+                android:gravity="center"
+                android:singleLine="false"
+                android:textSize="20dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="افزایش اعتبار"
-            android:textSize="20dp"/>
+            android:layout_marginRight="10dp"
+            android:id="@+id/charge_r">
+
+
+            <Button
+                android:id="@+id/history_btn"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/black"
+                android:background="@drawable/circle"
+                android:text="+"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="@android:dimen/app_icon_size"
+                android:gravity="center"
+                android:onClick="increase_balance"/>
+
+            <TextView
+                android:layout_below="@+id/history_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="افزایش اعتبار"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/charge_r"
+            android:layout_marginRight="15dp"
+            android:id="@+id/transfer_r">
+
+
+            <ImageButton
+                android:id="@+id/transfer_btn"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/circle"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/transfer_icon1"
+                android:scaleType="fitCenter"
+                android:textSize="@android:dimen/app_icon_size"
+                android:gravity="center"
+                android:onClick="transfer_balance"
+                />
+
+            <TextView
+                android:layout_below="@+id/transfer_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="انتقال اعتبار"
+                android:textSize="20dp"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

@@ -30,7 +30,7 @@ public class Login {
     RequestQueue requestQueue ;
     login_phone logPhone =new login_phone();
     String AC = access;
-    static String access_login;
+    static public String access_login;
     String Url_verify= login_phone.server_address+"/yaran/api/customers/registrations/";
     static public String Id;
 

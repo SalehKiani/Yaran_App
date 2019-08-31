@@ -37,7 +37,7 @@ public class login_phone extends AppCompatActivity {
 
     RequestQueue requestQueue;
     static String access;
-    static public String server_address="http://81.12.13.144:8080";
+    static public String server_address="http://81.12.13.142:8080";
     String mJSONURLString = (server_address+"/yaran/api/customers/registrations/anonymous");
 
     TextView phone_ed;

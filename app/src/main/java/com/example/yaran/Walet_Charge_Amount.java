@@ -51,12 +51,15 @@ public class Walet_Charge_Amount extends AppCompatActivity {
     {
         switch (view.getId())
         {
-            case (R.id.btn1):
+            case R.id.btn1:
                 editText.setText("1000000");
-            case (R.id.btn2):
+                break;
+            case R.id.btn2:
                 editText.setText("500000");
-            case (R.id.btn3):
+                break;
+            case R.id.btn3:
                 editText.setText("200000");
+                break;
         }
     }
 

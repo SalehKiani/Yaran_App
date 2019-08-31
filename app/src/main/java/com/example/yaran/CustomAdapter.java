@@ -21,8 +21,6 @@ public class CustomAdapter extends BaseAdapter {
 
     private ArrayList<News> News_list;
     private Context mContext;
-    private RequestQueue mRequestQueue;
-    private ImageLoader mImageLoader;
 
 
     public CustomAdapter(ArrayList<News> news_list, Context mContext) {
@@ -53,12 +51,14 @@ public class CustomAdapter extends BaseAdapter {
         }
 
 
-        mRequestQueue = Volley.newRequestQueue(mContext);
-        mImageLoader = new ImageLoader(mRequestQueue, new ImageLoader.ImageCache() {
+        RequestQueue mRequestQueue = Volley.newRequestQueue(mContext);
+        ImageLoader mImageLoader = new ImageLoader(mRequestQueue, new ImageLoader.ImageCache() {
             private final LruCache<String, Bitmap> mCache = new LruCache<String, Bitmap>(10);
+
             public void putBitmap(String url, Bitmap bitmap) {
                 mCache.put(url, bitmap);
             }
+
             public Bitmap getBitmap(String url) {
                 return mCache.get(url);
             }
@@ -81,7 +81,7 @@ public class CustomAdapter extends BaseAdapter {
         else {description.setText(currentItem.getDescription());}
         pubdate.setText(currentItem.getPubDate());
 
-        imageView.setImageUrl(currentItem.getEnclosureUrl(),mImageLoader);
+        imageView.setImageUrl(currentItem.getEnclosureUrl(), mImageLoader);
 
 //
 
